@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<meta name="Description" content="Enter your description here" />
+		<!-- <link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css"
+		/> -->
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+		<link rel="stylesheet" href="css/styles.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/monokai-sublime.min.css"
+		/>
+
+		<title>What's My Screen Size?</title>
+	</head>
+	<body>
+		<header>
+			<h1 class="display-4 text-uppercase text-center">What's My Screen Size?</h1>
+		</header>
+		<div class="container">
+			<section class="page-section">
+				<div class="row">
+					<div class="col-sm-12 col-md-8 offset-md-2 mx-auto">
+						<div class="card">
+							<h5 class="card-header">Your Media Query</h5>
+							<div class="card-body">
+								<pre><code class="css">
+@media screen (min-width: <span id="mqWidth"></span>px) {
+ /* css code here */
+}</code></pre>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="page-section">
+				<header class="section-header">
+					<h1>Your Screen Resolution</h1>
+				</header>
+				<div class="data-row">
+					<div class="data-left">Width:</div>
+					<div class="data-right">
+						<span id="screenW"></span>
+					</div>
+				</div>
+				<div class="data-row">
+					<div class="data-left">Height:</div>
+					<div class="data-right">
+						<span id="screenH"></span>
+					</div>
+				</div>
+				<div class="data-row">
+					<div class="data-left">Device Pixel Ratio:</div>
+					<div class="data-right">
+						<span id="dpr"></span>
+					</div>
+				</div>
+				<!-- <div class="data-row">
+					<div class="data-left">Resolution in Inches:</div>
+					<div class="data-right">
+						<div id="dpi"></div>
+						<span id="inchesSize"></span>
+					</div>
+				</div> -->
+			</section>
+
+			<section class="page-section">
+				<header class="section-header">
+					<h1>Your Browser Settings</h1>
+				</header>
+				<div class="data-row">
+					<div class="data-left">Are cookies enabled?</div>
+					<div class="data-right">
+						<span id="cookiesEnabled"></span>
+					</div>
+				</div>
+				<div class="data-row">
+					<div class="data-left">Is Flash enabled?</div>
+					<div class="data-right">
+						<span id="flashEnabled"></span>
+					</div>
+				</div>
+			</section>
+
+			<section>
+				<div class="table-responsive-sm">
+					<table class="table table-hover table-dark">
+						<tbody>
+							<!-- <tr>
+								<td>Height:</td>
+								<td><span id="screenH"></span></td>
+							</tr> -->
+							<!-- <tr>
+								<td>Device Pixel Ratio:</td>
+								<td><span id="dpr"></span></td>
+							</tr> -->
+							<!-- <tr>
+								<td>Are cookies enabled?</td>
+								<td><span id="cookiesEnabled"></span></td>
+							</tr> -->
+							<!-- <tr>
+								<td>Is Flash enabled?</td>
+								<td><span id="flashEnabled"></span></td>
+							</tr> -->
+							<tr>
+								<td>What's your IP address?</td>
+								<td><div id="ip"></div></td>
+							</tr>
+							<tr>
+								<td>App Code Name</td>
+								<td><span id="showAppCodeName"></span></td>
+							</tr>
+							<tr>
+								<td>App Name</td>
+								<td><span id="showAppName"></span></td>
+							</tr>
+							<tr>
+								<td>App Version</td>
+								<td><span id="showAppVersion"></span></td>
+							</tr>
+							<tr>
+								<td>Geolocation</td>
+								<td><span id="address"></span></td>
+							</tr>
+							<tr>
+								<td>LanThat Night, a Forest Grewguage</td>
+								<td><span id="showLanguage"></span></td>
+							</tr>
+							<tr>
+								<td>Is Online?</td>
+								<td><span id="isBrowserOnline"></span></td>
+							</tr>
+							<tr>
+								<td>Current Platform</td>
+								<td><span id="currPlatform"></span></td>
+							</tr>
+							<tr>
+								<td>Product?</td>
+								<td><span id="currProduct"></span></td>
+							</tr>
+							<tr>
+								<td>User Agent</td>
+								<td><span id="userAgent"></span></td>
+							</tr>
+							<tr>
+								<td>Is Java Enabled?</td>
+								<td><span id="isJavaEnabled"></span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+		</div>
+		<!-- Modal -->
+		<!-- <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Your Media Query</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <pre><code class="css">
+@media only screen and (max-width: <span id="innerWidth"></span>px) {
+  body {
+    background-color: lightblue;
+  }
+}
+            </code></pre>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Copy <i class="fas fa-copy"></i></button>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+		<footer><span id="thisYear"></span></footer>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script> -->
+
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/css.min.js"></script>
+
+		<script src="js/app.js"></script>
+	</body>
+</html>
