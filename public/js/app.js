@@ -60,8 +60,6 @@ function checkFlash() {
 }
 flashEnabled.textContent = checkFlash();
 
-//get ip address
-
 //get app code name
 function checkAppCodeName() {
 	return navigator.appCodeName;
@@ -74,30 +72,19 @@ function checkAppName() {
 }
 showAppName.textContent = checkAppName();
 
-//get app version
-function checkAppVersion() {
-	return navigator.appVersion;
-}
-showAppVersion.textContent = checkAppVersion();
+//get ip, city, state & country
 
-//get geolocation
-// var x = document.getElementById("demo");
-
-// function getLocation() {
-//   if (navigator.geolocation) {
-//     navigator.geolocation.getCurrentPosition(showPosition);
-//   } else {
-//     x.innerHTML = "Geolocation is not supported by this browser.";
-//   }
-// }
-
-// function showPosition(position) {
-//   x.innerHTML =
-//     "Latitude: " +
-//     position.coords.latitude +
-//     "<br>Longitude: " +
-//     position.coords.longitude;
-// }
+$.ajax({
+	url: "https://geolocation-db.com/jsonp",
+	jsonpCallback: "callback",
+	dataType: "jsonp",
+	success: function (location) {
+		$("#country").html(location.country_name);
+		$("#state").html(location.state);
+		$("#city").html(location.city);
+		$("#ip").html(location.IPv4);
+	},
+});
 
 //get language
 function getLanguage() {
@@ -107,6 +94,8 @@ function getLanguage() {
 		return "English";
 	} else if (lang == "es") {
 		return "Spanish";
+	} else {
+		return lang;
 	}
 }
 showLanguage.textContent = getLanguage();
@@ -128,12 +117,6 @@ function getPlatform() {
 }
 currPlatform.textContent = getPlatform();
 
-//get product
-function getProduct() {
-	return navigator.product;
-}
-currProduct.textContent = getProduct();
-
 //get user agent
 function getUA() {
 	return navigator.userAgent;
@@ -150,6 +133,25 @@ function getJavaStatus() {
 	}
 }
 isJavaEnabled.textContent = getJavaStatus();
+
+//user is being tracked?
+function isBeingTracked() {
+	let isTracked = navigator.doNotTrack;
+	if (isTracked == 1) {
+		return "No";
+	} else if (isTracked == 2) {
+		return "Yes";
+	} else {
+		return "We're not sure!";
+	}
+}
+isTracked.textContent = isBeingTracked();
+
+//bold left column
+let leftSide = document.getElementsByClassName("data-left");
+for (let i = 0; i < leftSide.length; i++) {
+	leftSide[i].classList.add("fw-bold");
+}
 
 //get curr year and output
 var currYr = new Date().getFullYear();

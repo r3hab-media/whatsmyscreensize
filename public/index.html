@@ -12,10 +12,7 @@
 
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
 		<link rel="stylesheet" href="css/styles.css" />
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/monokai-sublime.min.css"
-		/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/monokai-sublime.min.css" />
 
 		<title>What's My Screen Size?</title>
 	</head>
@@ -87,74 +84,63 @@
 						<span id="flashEnabled"></span>
 					</div>
 				</div>
-			</section>
-
-			<section>
-				<div class="table-responsive-sm">
-					<table class="table table-hover table-dark">
-						<tbody>
-							<!-- <tr>
-								<td>Height:</td>
-								<td><span id="screenH"></span></td>
-							</tr> -->
-							<!-- <tr>
-								<td>Device Pixel Ratio:</td>
-								<td><span id="dpr"></span></td>
-							</tr> -->
-							<!-- <tr>
-								<td>Are cookies enabled?</td>
-								<td><span id="cookiesEnabled"></span></td>
-							</tr> -->
-							<!-- <tr>
-								<td>Is Flash enabled?</td>
-								<td><span id="flashEnabled"></span></td>
-							</tr> -->
-							<tr>
-								<td>What's your IP address?</td>
-								<td><div id="ip"></div></td>
-							</tr>
-							<tr>
-								<td>App Code Name</td>
-								<td><span id="showAppCodeName"></span></td>
-							</tr>
-							<tr>
-								<td>App Name</td>
-								<td><span id="showAppName"></span></td>
-							</tr>
-							<tr>
-								<td>App Version</td>
-								<td><span id="showAppVersion"></span></td>
-							</tr>
-							<tr>
-								<td>Geolocation</td>
-								<td><span id="address"></span></td>
-							</tr>
-							<tr>
-								<td>LanThat Night, a Forest Grewguage</td>
-								<td><span id="showLanguage"></span></td>
-							</tr>
-							<tr>
-								<td>Is Online?</td>
-								<td><span id="isBrowserOnline"></span></td>
-							</tr>
-							<tr>
-								<td>Current Platform</td>
-								<td><span id="currPlatform"></span></td>
-							</tr>
-							<tr>
-								<td>Product?</td>
-								<td><span id="currProduct"></span></td>
-							</tr>
-							<tr>
-								<td>User Agent</td>
-								<td><span id="userAgent"></span></td>
-							</tr>
-							<tr>
-								<td>Is Java Enabled?</td>
-								<td><span id="isJavaEnabled"></span></td>
-							</tr>
-						</tbody>
-					</table>
+				<div class="data-row">
+					<div class="data-left">App Code Name?</div>
+					<div class="data-right">
+						<span id="showAppCodeName"></span>
+					</div>
+				</div>
+				<div class="data-row">
+					<div class="data-left">App Name?</div>
+					<div class="data-right">
+						<span id="showAppName"></span>
+					</div>
+				</div>
+				<div class="data-row">
+					<div class="data-left">System Language?</div>
+					<div class="data-right">
+						<span id="showLanguage"></span>
+					</div>
+				</div>
+				<div class="data-row">
+					<div class="data-left">Current Platform?</div>
+					<div class="data-right">
+						<span id="currPlatform"></span>
+					</div>
+				</div>
+				<div class="data-row">
+					<div class="data-left">Is Java enabled?</div>
+					<div class="data-right">
+						<span id="isJavaEnabled"></span>
+					</div>
+				</div>
+				<div class="data-row">
+					<div class="data-left">Is your activity being tracked?</div>
+					<div class="data-right">
+						<span id="isTracked"></span>
+					</div>
+				</div>
+				<div class="data-row">
+					<div class="data-left">Current Location?</div>
+					<div class="data-right"><span id="city"></span>, <span id="state"></span></div>
+				</div>
+				<div class="data-row">
+					<div class="data-left">Your IP Address?</div>
+					<div class="data-right">
+						<span id="ip"></span>
+					</div>
+				</div>
+				<div class="data-row">
+					<div class="data-left">Currently Online?</div>
+					<div class="data-right">
+						<span id="isBrowserOnline"></span>
+					</div>
+				</div>
+				<div class="data-row d-block">
+					<div class="data-left mb-2">Device User Agent</div>
+					<div class="data-right">
+						<span id="userAgent"></span>
+					</div>
 				</div>
 			</section>
 		</div>
@@ -192,12 +178,10 @@
       </div>
     </div> -->
 
-		<footer><span id="thisYear"></span></footer>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-
-		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script> -->
-
-		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+		<footer>
+			Whats My Screen Size?  <span id="thisYear"></span>
+		</footer>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
 
