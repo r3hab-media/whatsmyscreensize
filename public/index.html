@@ -5,10 +5,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 		<meta name="Description" content="Enter your description here" />
-		<!-- <link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css"
-		/> -->
 
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
 		<link rel="stylesheet" href="css/styles.css" />
@@ -22,16 +18,70 @@
 		</header>
 		<div class="container">
 			<section class="page-section">
-				<div class="row">
-					<div class="col-sm-12 col-md-8 offset-md-2 mx-auto">
-						<div class="card">
-							<h5 class="card-header">Your Media Query</h5>
-							<div class="card-body">
-								<pre><code class="css">
-@media screen (min-width: <span id="mqWidth"></span>px) {
- /* css code here */
+				<header class="section-header mb-2">
+					<h1>Media Query for this Device</h1>
+				</header>
+				<button class="btn primary ml-2" onclick="copyToClipboard('#currDevice')"><i class="fas fa-copy"></i> Copy Snippet!</button>
+				<pre><code class="css" id="currDevice">@media screen (min-width: <span id="mqWidth"></span>px) {
+  /* css code here */
 }</code></pre>
+			</section>
+
+			<section class="page-section">
+				<header class="section-header">
+					<h1>Other Common Media Queries</h1>
+				</header>
+				<div class="responsive-tabs">
+					<input class="state" type="radio" title="tab-one" name="tabs-state" id="tab-one" checked />
+					<input class="state" type="radio" title="tab-two" name="tabs-state" id="tab-two" />
+					<input class="state" type="radio" title="tab-three" name="tabs-state" id="tab-three" />
+					<input class="state" type="radio" title="tab-four" name="tabs-state" id="tab-four" />
+					<input class="state" type="radio" title="tab-five" name="tabs-state" id="tab-five" />
+
+					<div class="tabs flex-tabs">
+						<label for="tab-one" id="tab-one-label" class="tab">320px</label>
+						<label for="tab-two" id="tab-two-label" class="tab">480px</label>
+						<label for="tab-three" id="tab-three-label" class="tab">768px</label>
+						<label for="tab-four" id="tab-four-label" class="tab">1024px</label>
+						<label for="tab-five" id="tab-five-label" class="tab">1201px</label>
+
+						<div id="tab-one-panel" class="panel active">
+							<div class="options mb-2">
+								<label for="toggleQuery">Use 'max-width'?</label>
+								<input type="checkbox" name="toggleQuery" id="toggleQuery" onclick="queryToggle()" />
 							</div>
+							<button class="btn primary" onclick="copyToClipboard('#320px')" id="copied"><i class="fas fa-copy"></i> Copy Snippet!</button>
+							<pre><code class="css" id="320px">@media screen (<span class="text">min</span>-width: 320px) {
+  /* css code here */
+}</code></pre>
+						</div>
+						<div id="tab-two-panel" class="panel">
+							<div class="options mb-2">
+								<label for="toggleQuery">Use 'max-width'?</label>
+								<input type="checkbox" name="toggleQuery" id="toggleQuery" onclick="queryToggle()" />
+							</div>
+							<button class="btn primary" onclick="copyToClipboard('#480px')"><i class="fas fa-copy"></i> Copy Snippet!</button>
+							<pre><code class="css" id="480px">@media screen (<span class="text">min</span>-width: 480px) {
+  /* css code here */
+}</code></pre>
+						</div>
+						<div id="tab-three-panel" class="panel">
+							<button class="btn primary" onclick="copyToClipboard('#768px')"><i class="fas fa-copy"></i> Copy Snippet!</button>
+							<pre><code class="css" id="768px">@media screen (min-width: 768px) {
+  /* css code here */
+}</code></pre>
+						</div>
+						<div id="tab-four-panel" class="panel">
+							<button class="btn primary" onclick="copyToClipboard('#1024px')"><i class="fas fa-copy"></i> Copy Snippet!</button>
+							<pre><code class="css" id="1024px">@media screen (min-width: 1024px) {
+  /* css code here */
+}</code></pre>
+						</div>
+						<div id="tab-five-panel" class="panel">
+							<button class="btn primary" onclick="copyToClipboard('#1201px')"><i class="fas fa-copy"></i> Copy Snippet!</button>
+							<pre><code class="css" id="1201px">@media screen (min-width: 1201px) {
+  /* css code here */
+}</code></pre>
 						</div>
 					</div>
 				</div>
@@ -59,13 +109,17 @@
 						<span id="dpr"></span>
 					</div>
 				</div>
-				<!-- <div class="data-row">
-					<div class="data-left">Resolution in Inches:</div>
+				<div class="data-row">
+					<div class="data-left">Display Dimensions:<span class="d-block">(width x height)</span></div>
 					<div class="data-right">
 						<div id="dpi"></div>
 						<span id="inchesSize"></span>
 					</div>
-				</div> -->
+				</div>
+				<div class="data-row">
+					<div class="data-left">Screen Diagonal:</div>
+					<div class="data-right"><span id="diagInches"></span>" Screen</div>
+				</div>
 			</section>
 
 			<section class="page-section">
@@ -144,47 +198,16 @@
 				</div>
 			</section>
 		</div>
-		<!-- Modal -->
-		<!-- <div
-      class="modal fade"
-      id="exampleModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Your Media Query</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <pre><code class="css">
-@media only screen and (max-width: <span id="innerWidth"></span>px) {
-  body {
-    background-color: lightblue;
-  }
-}
-            </code></pre>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Copy <i class="fas fa-copy"></i></button>
-          </div>
-        </div>
-      </div>
-    </div> -->
 
 		<footer>
-			Whats My Screen Size?  <span id="thisYear"></span>
+			<p>What's My Screen Size?</p>
+			<span id="thisYear"></span>
 		</footer>
+
+		<!-- scripts -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
-
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/css.min.js"></script>
 
 		<script src="js/app.js"></script>

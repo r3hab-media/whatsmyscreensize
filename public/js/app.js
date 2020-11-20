@@ -18,16 +18,28 @@ function getMobileRes() {
 getMobileRes();
 
 //get screen inches
-// function getScreenSizeInches() {
-// 	const dpi_x = dpi.offsetWidth;
-// 	const dpi_y = dpi.offsetHeight;
-// 	const inchesWidth = (screen.width / dpi_x).toFixed(2);
-// 	const inchesHeight = (screen.height / dpi_y).toFixed(2);
+function getScreenSizeInches() {
+	const dpi_x = dpi.offsetWidth;
+	const dpi_y = dpi.offsetHeight;
+	const inchesWidth = (screen.width / dpi_x).toFixed(1);
+	const inchesHeight = (screen.height / dpi_y).toFixed(1);
 
-// 	// alert(Math.floor(inchesWidth) + " x " + Math.floor(inchesHeight));
-// 	inchesSize.textContent = `${inchesWidth}" x ${inchesHeight}"`;
-// }
-// getScreenSizeInches();
+	// alert(Math.floor(inchesWidth) + " x " + Math.floor(inchesHeight));
+	inchesSize.textContent = `${inchesWidth}" x ${inchesHeight}"`;
+}
+getScreenSizeInches();
+
+//get diagonal size
+function getDiagonalSize() {
+	const dpi_x = dpi.offsetWidth;
+	const dpi_y = dpi.offsetHeight;
+	const inchesWidth = screen.width / dpi_x;
+	const inchesHeight = screen.height / dpi_y;
+
+	//diagonal
+	diagInches.textContent = Math.sqrt(inchesHeight * inchesHeight + inchesWidth * inchesWidth).toFixed(1);
+}
+getDiagonalSize();
 
 //media query
 window.addEventListener("resize", getMediaQuery);
@@ -73,7 +85,6 @@ function checkAppName() {
 showAppName.textContent = checkAppName();
 
 //get ip, city, state & country
-
 $.ajax({
 	url: "https://geolocation-db.com/jsonp",
 	jsonpCallback: "callback",
@@ -152,6 +163,55 @@ let leftSide = document.getElementsByClassName("data-left");
 for (let i = 0; i < leftSide.length; i++) {
 	leftSide[i].classList.add("fw-bold");
 }
+
+//toggle for max vs min width in queries
+// function queryToggle() {
+//   var x = document.getElementById("text");
+//   if (x.innerHTML === "min") {
+//     x.innerHTML = "max";
+//   } else {
+//     x.innerHTML = "min";
+//   }
+// }
+
+// var x = document.getElementsByClassName(".text");
+// function queryToggle() {
+// 	for(let i = 0; i < x.length; i++) {
+// 		if (x.innerHTML === "min") {
+// 			x.innerHTML = "max";
+// 		} else {
+// 			x.innerHTML = "min";
+// 		}
+// 	}
+// }
+function queryToggle() {
+	let x = document.getElementsByClassName("text");
+	for (let i = 0; i < x.length; i++) {
+		if (x === "min") {
+			x.textContent = "max";
+		} else {
+			x.textContent = "min";
+		}
+	}
+}
+
+//click to copy
+function copyToClipboard(element) {
+	var $temp = $("<input>");
+	$("body").append($temp);
+	$temp.val($(element).text()).select();
+	document.execCommand("copy");
+	$temp.remove();
+}
+
+//passes message stating snippet is copied
+// copied.addEventListener("click", function () {
+// 	copiedMsg.classList.remove("hidden");
+// 	setTimeout(function () {
+// 		copiedMsg.textContent = "Copied!";
+// 		copiedMsg.classList.add("hidden");
+// 	}, 10);
+// });
 
 //get curr year and output
 var currYr = new Date().getFullYear();

@@ -23,11 +23,11 @@
 }
 
 ::-webkit-scrollbar {
-  display: none;
+	display: none;
 }
 
 html {
-  overflow: auto;
+	overflow: auto;
 	scrollbar-width: none;
 	min-height: 100vh;
 	position: relative;
@@ -35,16 +35,21 @@ html {
 
 body {
 	font-family: "Roboto", sans-serif;
-	margin: 0; 
+	margin: 0;
 	padding: 0;
 	padding-bottom: 50px;
 }
 
+.container {
+	max-width: 1100px;
+	margin: 0 auto;
+}
+
 footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background: darkgray;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	background: darkgray;
 	text-align: center;
 	height: 50px;
 	display: flex;
@@ -78,11 +83,27 @@ footer {
 	font-weight: 700;
 }
 
+.data-right {
+	align-items: center;
+	justify-content: center;
+}
+
+button.btn {
+	width: fit-content;
+	padding: 0.5em 1em;
+}
+
+.primary {
+	background: transparent;
+	border: 1px solid black;
+	box-shadow: 2px 2px 2px -2px black;
+}
+
 #dpi {
-	height: 1in; 
-	width: 1in; 
-	left: 100%; 
-	position: fixed; 
+	height: 1in;
+	width: 1in;
+	left: 100%;
+	position: fixed;
 	top: 100%;
 }
 
@@ -93,7 +114,7 @@ footer {
 	}
 
 	header.section-header {
-		padding: .5em 1em;
+		padding: 0.5em 1em;
 		background: lightblue;
 		border-bottom: 4px solid mediumblue;
 		text-align: center;
@@ -108,8 +129,12 @@ footer {
 	.data-row {
 		display: flex;
 		justify-content: space-between;
-		padding: .5em 1em;
+		padding: 0.5em 1em;
 		border-bottom: 1px solid #666666;
+	}
+
+	.data-row:last-of-type {
+		border: 0;
 	}
 
 	.d-block {
@@ -119,32 +144,230 @@ footer {
 	.mb-2 {
 		margin-bottom: 1em;
 	}
+
+	.ml-2 {
+		margin-left: 1em;
+	}
+
 }
+
 
 /* 480px Media Query */
 @media (min-width: 480px) {
-	property and class
+	/* property and class */
 }
-
 
 /* 600px Media Query */
 @media (min-width: 600px) {
-	property and class
+	/* property and class */
 }
 
 /* 768px Media Query */
 @media (min-width: 768px) {
-	property and class
+	/* property and class */
 }
 
 /* 992px Media Query */
 @media (min-width: 992px) {
-	property and class
 }
 
+/* 1024px Media Query */
+@media (min-width: 1024px) {
+	.collapsibles {
+		flex-direction: row;
+		justify-content: space-evenly;
+	}
+}
 
+/* 1201px Media Query */
+@media (min-width: 1201px) {
+	/* property and class */
+}
 
+/* basic styles for tabs */
+.responsive-tabs {
+	margin: 0 auto;
+	width: 100%;
+}
 
+.responsive-tabs .state {
+	position: absolute;
+	left: -10000px;
+}
 
+.responsive-tabs .flex-tabs {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
 
+.responsive-tabs .flex-tabs .tab {
+	-webkit-box-flex: 1;
+	-webkit-flex-grow: 1;
+	-ms-flex-positive: 1;
+	flex-grow: 1;
+	max-height: 40px;
+}
 
+.responsive-tabs .flex-tabs .panel {
+	background-color: #fff;
+	padding: 20px;
+	/* min-height: 300px; */
+	display: none;
+	width: 100%;
+	-webkit-flex-basis: auto;
+	-ms-flex-preferred-size: auto;
+	flex-basis: auto;
+}
+
+.responsive-tabs .tab {
+	display: inline-block;
+	padding: 10px;
+	vertical-align: top;
+	background-color: #eee;
+	cursor: hand;
+	cursor: pointer;
+	border-left: 10px solid #ccc;
+}
+
+.responsive-tabs .tab:hover {
+	background-color: #fff;
+}
+
+#tab-one:checked ~ .tabs #tab-one-label,
+#tab-two:checked ~ .tabs #tab-two-label,
+#tab-three:checked ~ .tabs #tab-three-label,
+#tab-four:checked ~ .tabs #tab-four-label,
+#tab-five:checked ~ .tabs #tab-five-label {
+	background-color: #fff;
+	cursor: default;
+	border-left-color: #69be28;
+}
+
+#tab-one:checked ~ .tabs #tab-one-panel,
+#tab-two:checked ~ .tabs #tab-two-panel,
+#tab-three:checked ~ .tabs #tab-three-panel,
+#tab-four:checked ~ .tabs #tab-four-panel,
+#tab-five:checked ~ .tabs #tab-five-panel {
+	display: block;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 2s, opacity 2s linear;
+}
+
+/* responsive styles for tabs */
+@media (max-width: 600px) {
+	.flex-tabs {
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-webkit-flex-direction: column;
+		-ms-flex-direction: column;
+		flex-direction: column;
+	}
+
+	.flex-tabs .tab {
+		background: #fff;
+		border-bottom: 1px solid #ccc;
+	}
+
+	.flex-tabs .tab:last-of-type {
+		border-bottom: none;
+	}
+
+	.flex-tabs #tab-one-label {
+		-webkit-box-ordinal-group: 2;
+		-webkit-order: 1;
+		-ms-flex-order: 1;
+		order: 1;
+	}
+
+	.flex-tabs #tab-two-label {
+		-webkit-box-ordinal-group: 4;
+		-webkit-order: 3;
+		-ms-flex-order: 3;
+		order: 3;
+	}
+
+	.flex-tabs #tab-three-label {
+		-webkit-box-ordinal-group: 6;
+		-webkit-order: 5;
+		-ms-flex-order: 5;
+		order: 5;
+	}
+
+	.flex-tabs #tab-four-label {
+		-webkit-box-ordinal-group: 8;
+		-webkit-order: 7;
+		-ms-flex-order: 7;
+		order: 7;
+	}
+
+	.flex-tabs #tab-five-label {
+		-webkit-box-ordinal-group: 10;
+		-webkit-order: 9;
+		-ms-flex-order: 9;
+		order: 9;
+	}
+
+	.flex-tabs #tab-one-panel {
+		-webkit-box-ordinal-group: 3;
+		-webkit-order: 2;
+		-ms-flex-order: 2;
+		order: 2;
+	}
+
+	.flex-tabs #tab-two-panel {
+		-webkit-box-ordinal-group: 5;
+		-webkit-order: 4;
+		-ms-flex-order: 4;
+		order: 4;
+	}
+
+	.flex-tabs #tab-three-panel {
+		-webkit-box-ordinal-group: 7;
+		-webkit-order: 6;
+		-ms-flex-order: 6;
+		order: 6;
+	}
+
+	.flex-tabs #tab-four-panel {
+		-webkit-box-ordinal-group: 9;
+		-webkit-order: 8;
+		-ms-flex-order: 8;
+		order: 8;
+	}
+
+	.flex-tabs #tab-five-panel {
+		-webkit-box-ordinal-group: 11;
+		-webkit-order: 10;
+		-ms-flex-order: 10;
+		order: 10;
+	}
+
+	#tab-one:checked ~ .tabs #tab-one-label,
+	#tab-two:checked ~ .tabs #tab-two-label,
+	#tab-three:checked ~ .tabs #tab-three-label,
+	#tab-four:checked ~ .tabs #tab-four-label,
+	#tab-five:checked ~ .tabs #tab-five-label {
+		border-bottom: none;
+	}
+
+	#tab-one:checked ~ .tabs #tab-one-panel,
+	#tab-two:checked ~ .tabs #tab-two-panel,
+	#tab-three:checked ~ .tabs #tab-three-panel,
+	#tab-four:checked ~ .tabs #tab-four-panel,
+	#tab-five:checked ~ .tabs #tab-five-panel {
+		border-bottom: 1px solid #ccc;
+	}
+}
