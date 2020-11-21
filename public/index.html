@@ -38,6 +38,14 @@
 					<input class="state" type="radio" title="tab-four" name="tabs-state" id="tab-four" />
 					<input class="state" type="radio" title="tab-five" name="tabs-state" id="tab-five" />
 
+					<div class="options mb-2">
+						<label for="toggleQuery">Use 'max-width'?</label>
+						<input type="checkbox" name="toggleQuery" class="mr-2" id="toggleQuery" onclick="queryToggle()" />
+
+						<label for="toggleOnly">Use 'only screen' key phrase?</label>
+						<input type="checkbox" name="toggleOnly" id="toggleOnly" onclick="onlyToggle()" />
+					</div>
+
 					<div class="tabs flex-tabs">
 						<label for="tab-one" id="tab-one-label" class="tab">320px</label>
 						<label for="tab-two" id="tab-two-label" class="tab">480px</label>
@@ -46,40 +54,32 @@
 						<label for="tab-five" id="tab-five-label" class="tab">1201px</label>
 
 						<div id="tab-one-panel" class="panel active">
-							<div class="options mb-2">
-								<label for="toggleQuery">Use 'max-width'?</label>
-								<input type="checkbox" name="toggleQuery" id="toggleQuery" onclick="queryToggle()" />
-							</div>
 							<button class="btn primary" onclick="copyToClipboard('#320px')" id="copied"><i class="fas fa-copy"></i> Copy Snippet!</button>
-							<pre><code class="css" id="320px">@media screen (<span class="text">min</span>-width: 320px) {
+							<pre><code class="css" id="320px">@media <span class="only"></span>(<span class="width">min</span>-width: 320px) {
   /* css code here */
 }</code></pre>
 						</div>
 						<div id="tab-two-panel" class="panel">
-							<div class="options mb-2">
-								<label for="toggleQuery">Use 'max-width'?</label>
-								<input type="checkbox" name="toggleQuery" id="toggleQuery" onclick="queryToggle()" />
-							</div>
 							<button class="btn primary" onclick="copyToClipboard('#480px')"><i class="fas fa-copy"></i> Copy Snippet!</button>
-							<pre><code class="css" id="480px">@media screen (<span class="text">min</span>-width: 480px) {
+							<pre><code class="css" id="480px">@media <span class="only"></span>(<span class="width">min</span>-width: 480px) {
   /* css code here */
 }</code></pre>
 						</div>
 						<div id="tab-three-panel" class="panel">
 							<button class="btn primary" onclick="copyToClipboard('#768px')"><i class="fas fa-copy"></i> Copy Snippet!</button>
-							<pre><code class="css" id="768px">@media screen (min-width: 768px) {
+							<pre><code class="css" id="768px">@media <span class="only"></span>(<span class="width">min</span>-width: 768px) {
   /* css code here */
 }</code></pre>
 						</div>
 						<div id="tab-four-panel" class="panel">
 							<button class="btn primary" onclick="copyToClipboard('#1024px')"><i class="fas fa-copy"></i> Copy Snippet!</button>
-							<pre><code class="css" id="1024px">@media screen (min-width: 1024px) {
+							<pre><code class="css" id="1024px">@media <span class="only"></span>(<span class="width">min</span>-width: 1024px) {
   /* css code here */
 }</code></pre>
 						</div>
 						<div id="tab-five-panel" class="panel">
 							<button class="btn primary" onclick="copyToClipboard('#1201px')"><i class="fas fa-copy"></i> Copy Snippet!</button>
-							<pre><code class="css" id="1201px">@media screen (min-width: 1201px) {
+							<pre><code class="css" id="1201px">@media <span class="only"></span>(<span class="width">min</span>-width: 1201px) {
   /* css code here */
 }</code></pre>
 						</div>

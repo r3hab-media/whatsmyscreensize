@@ -107,6 +107,12 @@ button.btn {
 	top: 100%;
 }
 
+.options {
+	display: flex;
+	border: 2px solid blue;
+	padding: 0.5em;
+}
+
 /* 320px Media Query */
 @media (min-width: 320px) {
 	h1.display-4 {
@@ -145,12 +151,18 @@ button.btn {
 		margin-bottom: 1em;
 	}
 
+	/* .options {
+    flex-direction: column;
+  } */
+
+	input[type="checkbox"] {
+		margin-right: 2em;
+	}
+
 	.ml-2 {
 		margin-left: 1em;
 	}
-
 }
-
 
 /* 480px Media Query */
 @media (min-width: 480px) {
@@ -261,9 +273,9 @@ button.btn {
 }
 
 .hidden {
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s 2s, opacity 2s linear;
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 0s 2s, opacity 2s linear;
 }
 
 /* responsive styles for tabs */

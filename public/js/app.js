@@ -164,44 +164,26 @@ for (let i = 0; i < leftSide.length; i++) {
 	leftSide[i].classList.add("fw-bold");
 }
 
-//toggle for max vs min width in queries
-// function queryToggle() {
-//   var x = document.getElementById("text");
-//   if (x.innerHTML === "min") {
-//     x.innerHTML = "max";
-//   } else {
-//     x.innerHTML = "min";
-//   }
-// }
-
-// var x = document.getElementsByClassName(".text");
-// function queryToggle() {
-// 	for(let i = 0; i < x.length; i++) {
-// 		if (x.innerHTML === "min") {
-// 			x.innerHTML = "max";
-// 		} else {
-// 			x.innerHTML = "min";
-// 		}
-// 	}
-// }
-function queryToggle() {
-	let x = document.getElementsByClassName("text");
-	for (let i = 0; i < x.length; i++) {
-		if (x === "min") {
-			x.textContent = "max";
-		} else {
-			x.textContent = "min";
-		}
-	}
+function copyToClipboard(element) {
+  var $temp = $("<input>");
+  $("body").append($temp);
+  $temp.val($(element).text()).select();
+  document.execCommand("copy");
+  $temp.remove();
 }
 
-//click to copy
-function copyToClipboard(element) {
-	var $temp = $("<input>");
-	$("body").append($temp);
-	$temp.val($(element).text()).select();
-	document.execCommand("copy");
-	$temp.remove();
+function queryToggle() {
+  let queryWidth = document.getElementsByClassName("width");
+  for (let i = 0; i < queryWidth.length; i++) {
+    queryWidth[i].innerHTML = queryWidth[i].innerHTML === "min" ? "max" : "min";
+  }
+}
+
+function onlyToggle() {
+  let onlyScreen = document.getElementsByClassName("only");
+  for (let i = 0; i < onlyScreen.length; i++) {
+    onlyScreen[i].innerHTML = onlyScreen[i].innerHTML === "" ? "only screen and " : "";
+  }
 }
 
 //passes message stating snippet is copied
