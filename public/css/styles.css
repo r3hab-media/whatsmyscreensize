@@ -37,7 +37,7 @@ body {
 	font-family: "Roboto", sans-serif;
 	margin: 0;
 	padding: 0;
-	padding-bottom: 50px;
+	padding-bottom: 80px;
 }
 
 .container {
@@ -51,12 +51,16 @@ footer {
 	width: 100%;
 	background: darkgray;
 	text-align: center;
-	height: 50px;
+	height: fit-content;
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-evenly;
+	padding: .5em;
 }
 
+.text-red	{
+	color: red;
+}
 /* utilities */
 .text-center {
 	text-align: center;
@@ -162,6 +166,12 @@ button.btn {
 	.ml-2 {
 		margin-left: 1em;
 	}
+
+	.footer-content {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
 }
 
 /* 480px Media Query */
@@ -176,7 +186,14 @@ button.btn {
 
 /* 768px Media Query */
 @media (min-width: 768px) {
-	/* property and class */
+	.footer-content {
+		flex-direction: row;
+		justify-content: space-around;
+	}
+
+	.footer-right, .footer-left, .footer-ad {
+		margin: 0 1em;
+	}
 }
 
 /* 992px Media Query */

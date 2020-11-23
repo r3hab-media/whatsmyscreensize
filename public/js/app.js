@@ -165,26 +165,26 @@ for (let i = 0; i < leftSide.length; i++) {
 }
 
 function copyToClipboard(element) {
-  var $temp = $("<input>");
-  $("body").append($temp);
-  $temp.val($(element).text()).select();
-  document.execCommand("copy");
-  $temp.remove();
+	var $temp = $("<input>");
+	$("body").append($temp);
+	$temp.val($(element).text()).select();
+	document.execCommand("copy");
+	$temp.remove();
 }
 
-function queryToggle() {
-  let queryWidth = document.getElementsByClassName("width");
-  for (let i = 0; i < queryWidth.length; i++) {
-    queryWidth[i].innerHTML = queryWidth[i].innerHTML === "min" ? "max" : "min";
-  }
-}
+// function queryToggle() {
+//   let queryWidth = document.getElementsByClassName("width");
+//   for (let i = 0; i < queryWidth.length; i++) {
+//     queryWidth[i].innerHTML = queryWidth[i].innerHTML === "min" ? "max" : "min";
+//   }
+// }
 
-function onlyToggle() {
-  let onlyScreen = document.getElementsByClassName("only");
-  for (let i = 0; i < onlyScreen.length; i++) {
-    onlyScreen[i].innerHTML = onlyScreen[i].innerHTML === "" ? "only screen and " : "";
-  }
-}
+// function onlyToggle() {
+//   let onlyScreen = document.getElementsByClassName("only");
+//   for (let i = 0; i < onlyScreen.length; i++) {
+//     onlyScreen[i].innerHTML = onlyScreen[i].innerHTML === "" ? "only screen and " : "";
+//   }
+// }
 
 //passes message stating snippet is copied
 // copied.addEventListener("click", function () {
@@ -195,6 +195,12 @@ function onlyToggle() {
 // 	}, 10);
 // });
 
-//get curr year and output
+//footer info
+let fname = "jared";
+let lname = "newnam";
+let domain = "gmail.com";
+
+email.innerHTML = `<a href="mailto:${fname}.${lname}@${domain}">me</a>`;
+
 var currYr = new Date().getFullYear();
 thisYear.textContent = currYr;
